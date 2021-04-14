@@ -32,16 +32,27 @@ public class UserRegistrationProgram {
         return Pattern.matches("^[91]{2}\\s[0-9]{10}", phoneNumber);
     }
     
+    /*
+     * UC-5: validating password
+     *
+     *  Rule1: minimum 8 characters
+     */
+    public static boolean validatePassword(String password) {
+        return Pattern.matches(".{8,}",password);
+    }
+    
     //main method
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration Simulator!");
         String firstName = "Rahul";
         String lastName = "Rahul";
-        String email = "rahul@gmail.com";
         String phoneNumber = "91 8688332960";
+        String email = "rahul@gmail.com";
+        String password = "tersf3k657";
         System.out.println("first name: " + validateFirstName(firstName));
         System.out.println("last name: " + validateLastName(lastName));
         System.out.println("email: " + validateEmail(email));
+        System.out.println("password: " + validatePassword(password));
         System.out.println("phone number: " + validatePhoneNumber(phoneNumber));
     }
 }
