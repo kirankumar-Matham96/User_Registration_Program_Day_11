@@ -38,9 +38,19 @@ public class UserRegistrationProgram {
      *  Rule1: minimum 8 characters
      *  Rule2: minimum 1 upper-case
      *  Rule3: minimum 1 numeric value
+     *  Rule4: Exactly 1 special character
      */
     public static boolean validatePassword(String password) {
-        return Pattern.matches("(?=.*[A-Z])(?=.*[0-9]).{8,}",password);
+        String[] regexExpressions = {"[@|#|$|%|&]{1,1}[a-zA-Z0-9]$ " +
+                                     "| [a-zA-Z0-9][@|#|$|%|&]{1,1}[a-zA-Z0-9]$ " +
+                                     "| [a-zA-Z0-9][@|#|$|%|&]{1,1}$",
+                                     "(?=.[A-Z])(?=.[0-9])(?=.*[@|#|$|%|&])[A-Za-z0-9@#$%&]{8,}$"};
+        for(String regex : regexExpressions) {
+            if(!password.matches(regex)) {
+                return false;
+            }
+        }
+        return true;
     }
     
     //main method
@@ -50,7 +60,7 @@ public class UserRegistrationProgram {
         String lastName = "Rahul";
         String phoneNumber = "91 8688332960";
         String email = "rahul@gmail.com";
-        String password = "kjgterS6sfk";
+        String password = "kjgte$rS6sfk";
         System.out.println("first name: " + validateFirstName(firstName));
         System.out.println("last name: " + validateLastName(lastName));
         System.out.println("email: " + validateEmail(email));
