@@ -36,9 +36,10 @@ public class UserRegistrationProgram {
      * UC-5: validating password
      *
      *  Rule1: minimum 8 characters
+     *  Rule2: minimum 1 upper-case
      */
     public static boolean validatePassword(String password) {
-        return Pattern.matches(".{8,}",password);
+        return Pattern.matches("(?=.*[A-Z]).{8,}",password);
     }
     
     //main method
@@ -48,7 +49,7 @@ public class UserRegistrationProgram {
         String lastName = "Rahul";
         String phoneNumber = "91 8688332960";
         String email = "rahul@gmail.com";
-        String password = "tersf3k657";
+        String password = "terSsf3k657";
         System.out.println("first name: " + validateFirstName(firstName));
         System.out.println("last name: " + validateLastName(lastName));
         System.out.println("email: " + validateEmail(email));
