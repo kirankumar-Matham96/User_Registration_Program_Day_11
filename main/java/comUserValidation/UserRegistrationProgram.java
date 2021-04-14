@@ -25,14 +25,23 @@ public class UserRegistrationProgram {
         return Pattern.matches("^(?!\\.)[A-Za-z0-9]+([._%+-]?[0-9])*@[A-Za-z0-9-]+\\.[a-zA-Z]{2,}(\\.[A-Za-z]{2,})?$", email);
     }
     
+    /*
+     * UC-4: validating mobile number
+     */
+    public static boolean validatePhoneNumber(String phoneNumber) {
+        return Pattern.matches("^[91]{2}\\s[0-9]{10}", phoneNumber);
+    }
+    
     //main method
     public static void main(String[] args) {
         System.out.println("Welcome to User Registration Simulator!");
         String firstName = "Rahul";
         String lastName = "Rahul";
         String email = "rahul@gmail.com";
+        String phoneNumber = "91 8688332960";
         System.out.println("first name: " + validateFirstName(firstName));
         System.out.println("last name: " + validateLastName(lastName));
         System.out.println("email: " + validateEmail(email));
+        System.out.println("phone number: " + validatePhoneNumber(phoneNumber));
     }
 }
